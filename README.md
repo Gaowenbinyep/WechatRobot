@@ -1,6 +1,7 @@
 # WechatRobot
 
-一个基于大语言模型（LLM）的智能微信机器人项目，支持工具调用（天气查询、网页搜索等）、自定义工作流和本地模型部署，可通过自然语言交互完成多种任务。
+基于大语言模型（LLM）的智能微信机器人项目，支持工具调用（天气查询、网页搜索等）、自定义工作流和本地模型部署，可通过自然语言交互完成多种任务。
+实现云端调用模型做奖励函数的多维度[风格近似度，关联度，简洁度，语义清晰度]动态奖励PPO，
 微调时，别忘了将<your_name>修改成你的名字~
 ---
 
@@ -13,9 +14,7 @@
 - [使用指南](#使用指南)
 - [工作流详解](#工作流详解)
 - [模型微调与评估](#模型微调与评估)
-- [常见问题](#常见问题)
 - [依赖说明](#依赖说明)
-- [致谢](#致谢)
 
 ---
 
@@ -192,15 +191,14 @@ python data_process.py  # 转换数据至 ./data
 ### 微调流程
 
 cd LLaMA-Factory
-python train.py \
-    --model_name_or_path /path/to/base_model \
-    --lora_rank 16 \
-    --data_path ../data/v1.0/Gen_single_train.json \
-    --output_dir ../Saved_models/sft/8B_lora_V2
+sh sft.sh
 
+cd PPO
+sh ppo.sh
 ### 评估
 
 python evaluation/sim_eva.py
+python evaluation/llm_eva.py
 
 ---
 
