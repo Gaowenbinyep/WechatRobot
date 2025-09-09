@@ -67,7 +67,8 @@ WechatRobot/
 
 - **天气查询**：`get_weather(city)` 获取实时天气（基于 wttr.in API）。  
 - **网页搜索**：`web_search(query)` 调用搜索接口（百度 API）。  
-- **时间获取**：`get_current_time()` 返回当前时间。  
+- **时间获取**：`get_current_time()` 返回当前时间。
+- **奶茶外卖**：基于RAG开发奶茶推荐与自动点单功能，待更新同步......
 
 ### 2. 工作流引擎
 
