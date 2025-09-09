@@ -129,9 +129,10 @@ bash model_deploy.sh
 
 服务默认运行在 `http://localhost:8888`，支持 OpenAI 兼容 API。
 
-### 2. 运行机器人
+### 2. 运行智能体机器人
 
-python Agent/main.py  # 假设存在主入口文件
+python Agent/main.py # 智能体入口文件
+python start.py # 单纯对话入口文件
 
 ### 3. 交互示例
 
@@ -139,7 +140,7 @@ python Agent/main.py  # 假设存在主入口文件
 机器人响应：
 > 调用工具：get_weather(北京)
 > 工具返回：北京：晴 25°C
-> 最终回答：北京当前天气为晴，气温25°C。
+> 最终回答：北京今天是晴天哦，像你一样温暖
 
 ---
 
@@ -203,22 +204,6 @@ python evaluation/sim_eva.py
 
 ---
 
-## 常见问题
-
-1. **模型无法启动**
-   - 检查 `model_deploy.sh` 中的模型路径是否正确。
-   - 确保 CUDA 内存充足（4B 模型约需 8GB+ 显存）。
-
-2. **工具调用失败**
-   - 检查工具 API 地址（如 wttr.in、百度搜索）是否可访问。
-   - 确认 `tools.py` 中的网络请求超时设置（`timeout=5`）是否合理。
-
-3. **工作流卡住**
-   - 检查 LangGraph 节点间的边连接是否正确（`graph.add_edge`）。
-   - 查看日志文件 `logs/model_output.log` 定位推理错误。
-
----
-
 ## 依赖说明
 
 - `langchain` / `langgraph`：工作流与工具链框架。
@@ -227,11 +212,4 @@ python evaluation/sim_eva.py
 - `llama-factory`：模型微调工具。
 - `requests`：网络请求（工具调用）。
 
----
-
-## 致谢
-
-- **LangChain**：工作流与工具集成框架。
-- **LLaMA-Factory**：模型微调工具。
-- **vLLM**：高性能 LLM 部署引擎。
 
