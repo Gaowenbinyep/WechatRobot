@@ -39,18 +39,18 @@ WechatRobot/
 │   ├── graph_nodes/        
 │   │   └── nodes.py        
 │   ├── prompts/            
-│   └── tools/              
-│       ├── tools.py        
-│       └── weather.py      
+│   └── tools/
+│       └── tools.py      
 ├── data/                   
-│   ├── v0.0/               
+│   ├── v0.0/
+│   ├── v0.1/              
 │   └── LCCC/               
 ├── evaluation/             
-│   ├── sim_eva.py          
+│   ├── sim_eva.py
+│   ├── llm_eva.py          
 │   └── test_result_*.json  
 ├── LLaMA-Factory/          
 ├── Saved_models/           
-│   └── rlhf/4B_lora_PPO_V3/merged  
 ├── logs/                   
 ├── model_deploy.sh         
 ├── data_process.py         
